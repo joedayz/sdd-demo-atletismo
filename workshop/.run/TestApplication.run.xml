@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="workshop" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="pe.joedayz.workshop.TestApplication" />
+    <envs>
+      <env name="DOCKER_HOST" value="unix:///var/run/docker.sock" />
+      <env name="TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE" value="/var/run/docker.sock" />
+    </envs>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
