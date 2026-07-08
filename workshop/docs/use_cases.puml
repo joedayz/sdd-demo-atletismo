@@ -1,0 +1,88 @@
+@startuml Casos de Uso - Gestión de Competiciones de Atletismo
+
+left to right direction
+
+' Actores
+actor "Administrador" as Admin
+actor "Usuario" as User
+actor "Sistema" as System
+
+' Casos de uso
+rectangle "Gestión de Competiciones de Atletismo" {
+
+  ' Gestión de Competiciones
+  usecase "CU-001\nGestionar Competiciones" as UC001
+
+  ' Gestión de Categorías
+  usecase "CU-002\nGestionar Categorías" as UC002
+  usecase "CU-003\nAsignar Pruebas a las Categorías" as UC003
+
+  ' Gestión de Atletas
+  usecase "CU-004\nRegistrar Atletas" as UC004
+  usecase "CU-005\nGestionar Atletas" as UC005
+
+  ' Gestión de Clubes
+  usecase "CU-006\nGestionar Clubes" as UC006
+
+  ' Registro de Resultados
+  usecase "CU-007\nRegistrar Resultados de las Pruebas" as UC007
+
+  ' Casos de uso del Sistema
+  usecase "CU-008\nAsignar Automáticamente\nAtletas a Categorías" as UC008
+  usecase "CU-009\nCalcular Puntuación\n(IAAF)" as UC009
+  usecase "CU-010\nClasificar Atletas" as UC010
+
+  ' Consultas
+  usecase "CU-011\nConsultar Lista de Clasificación" as UC011
+  usecase "CU-012\nConsultar Resultados\nIndividuales" as UC012
+
+}
+
+' Relaciones del Administrador
+Admin --> UC001
+Admin --> UC002
+Admin --> UC003
+Admin --> UC004
+Admin --> UC005
+Admin --> UC006
+Admin --> UC007
+
+' Relaciones del Usuario
+User --> UC011
+User --> UC012
+
+' Relaciones del Sistema
+System --> UC008
+System --> UC009
+System --> UC010
+
+' Relaciones de extensión
+UC004 ..> UC008 : <<extend>>
+UC007 ..> UC009 : <<extend>>
+UC009 ..> UC010 : <<extend>>
+
+' Dependencias
+UC011 ..> UC010 : <<depends>>
+UC012 ..> UC009 : <<depends>>
+
+note right of UC008
+  Asigna automáticamente
+  a los atletas a una categoría
+  según su año de nacimiento
+  y su género.
+end note
+
+note right of UC009
+  Calcula la puntuación
+  utilizando las fórmulas
+  oficiales de la IAAF.
+end note
+
+note right of UC010
+  Clasifica a los atletas
+  dentro de su categoría
+  una vez finalizadas
+  todas las pruebas.
+end note
+
+@enduml
