@@ -26,7 +26,7 @@ Ejecutar la aplicación utilizando PostgreSQL dentro de Testcontainers:
 ./mvnw spring-boot:test-run
 ```
 
-Este comando utiliza `TestAiTrackAndFieldApplication`, que configura automáticamente un contenedor PostgreSQL.
+Este comando utiliza `TestApplication`, que configura automáticamente un contenedor PostgreSQL.
 
 Ejecutar la aplicación de forma tradicional (requiere una instancia externa de PostgreSQL):
 
@@ -110,7 +110,7 @@ src/main/resources/db/migration/
 ### Ubicación del Código Generado
 
 ```
-ch.martinelli.demo.aitaf.db
+pe.joedayz.workshop.aitaf.db
 ```
 
 ### Generador Personalizado
@@ -287,7 +287,7 @@ El plugin realizará automáticamente las siguientes acciones:
 - Generar el código Java tipado en:
 
 ```
-ch.martinelli.demo.aitaf.db
+pe.joedayz.workshop.aitaf.db
 ```
 
 ---
@@ -297,20 +297,20 @@ ch.martinelli.demo.aitaf.db
 Paquete base del proyecto:
 
 ```
-ch.martinelli.demo.aitaf
+pe.joedayz.workshop.aitaf
 ```
 
 Actualmente la estructura mínima incluye:
 
 - Clase principal:
-    - `AiTrackAndFieldApplication`
+    - `Application`
 
 - Configuración de pruebas:
     - `TestcontainersConfiguration`
-    - `TestAiTrackAndFieldApplication`
+    - `TestApplication`
 
 - Código generado por jOOQ:
-    - `ch.martinelli.demo.aitaf.db`
+    - `pe.joedayz.workshop.aitaf.db`
 
 A medida que el proyecto crezca, se espera incorporar paquetes como:
 
